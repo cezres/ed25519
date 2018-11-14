@@ -34,36 +34,77 @@
 //   PreComputedGroupElement: (y+x,y-x,2dxy)
 
 public struct ProjectiveGroupElement {
-    var X: FieldElement = FieldElement(repeating: 0, count: 10)
-    var Y: FieldElement = FieldElement(repeating: 0, count: 10)
-    var Z: FieldElement = FieldElement(repeating: 0, count: 10)
+    public var X: FieldElement
+    public var Y: FieldElement
+    public var Z: FieldElement
+    public init(X: FieldElement = FieldElement(repeating: 0, count: 10),
+                Y: FieldElement = FieldElement(repeating: 0, count: 10),
+                Z: FieldElement = FieldElement(repeating: 0, count: 10)) {
+        self.X = X
+        self.Y = Y
+        self.Z = Z
+    }
 }
 
 public struct ExtendedGroupElement {
-    var X: FieldElement = FieldElement(repeating: 0, count: 10)
-    var Y: FieldElement = FieldElement(repeating: 0, count: 10)
-    var Z: FieldElement = FieldElement(repeating: 0, count: 10)
-    var T: FieldElement = FieldElement(repeating: 0, count: 10)
+    public var X: FieldElement
+    public var Y: FieldElement
+    public var Z: FieldElement
+    public var T: FieldElement
+    public init(X: FieldElement = FieldElement(repeating: 0, count: 10),
+                Y: FieldElement = FieldElement(repeating: 0, count: 10),
+                Z: FieldElement = FieldElement(repeating: 0, count: 10),
+                T: FieldElement = FieldElement(repeating: 0, count: 10)) {
+        self.X = X
+        self.Y = Y
+        self.Z = Z
+        self.T = T
+    }
 }
 
 public struct CompletedGroupElement {
-    var X: FieldElement = FieldElement(repeating: 0, count: 10)
-    var Y: FieldElement = FieldElement(repeating: 0, count: 10)
-    var Z: FieldElement = FieldElement(repeating: 0, count: 10)
-    var T: FieldElement = FieldElement(repeating: 0, count: 10)
+    public var X: FieldElement
+    public var Y: FieldElement
+    public var Z: FieldElement
+    public var T: FieldElement
+    public init(X: FieldElement = FieldElement(repeating: 0, count: 10),
+                Y: FieldElement = FieldElement(repeating: 0, count: 10),
+                Z: FieldElement = FieldElement(repeating: 0, count: 10),
+                T: FieldElement = FieldElement(repeating: 0, count: 10)) {
+        self.X = X
+        self.Y = Y
+        self.Z = Z
+        self.T = T
+    }
 }
 
 public struct PreComputedGroupElement {
-    var yPlusX: FieldElement = FieldElement(repeating: 0, count: 10)
-    var yMinusX: FieldElement = FieldElement(repeating: 0, count: 10)
-    var xy2d: FieldElement = FieldElement(repeating: 0, count: 10)
+   public var yPlusX: FieldElement
+   public var yMinusX: FieldElement
+   public var xy2d: FieldElement
+    public init(yPlusX: FieldElement = FieldElement(repeating: 0, count: 10),
+                yMinusX: FieldElement = FieldElement(repeating: 0, count: 10),
+                xy2d: FieldElement = FieldElement(repeating: 0, count: 10)) {
+        self.yPlusX = yPlusX
+        self.yMinusX = yMinusX
+        self.xy2d = xy2d
+    }
 }
 
 public struct CachedGroupElement {
-    var yPlusX: FieldElement = FieldElement(repeating: 0, count: 10)
-    var yMinusX: FieldElement = FieldElement(repeating: 0, count: 10)
-    var Z: FieldElement = FieldElement(repeating: 0, count: 10)
-    var T2d: FieldElement = FieldElement(repeating: 0, count: 10)
+    public var yPlusX: FieldElement
+    public var yMinusX: FieldElement
+    public var Z: FieldElement
+    public var T2d: FieldElement
+    public init(yPlusX: FieldElement = FieldElement(repeating: 0, count: 10),
+                yMinusX: FieldElement = FieldElement(repeating: 0, count: 10),
+                Z: FieldElement = FieldElement(repeating: 0, count: 10),
+                T2d: FieldElement = FieldElement(repeating: 0, count: 10)) {
+        self.yPlusX = yPlusX
+        self.yMinusX = yMinusX
+        self.Z = Z
+        self.T2d = T2d
+    }
 }
 
 
