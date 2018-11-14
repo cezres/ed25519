@@ -10,6 +10,11 @@
 		8F6B22C4219BF4D20041DA97 /* ed25519.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8F6B22BA219BF4D20041DA97 /* ed25519.framework */; };
 		8F6B22C9219BF4D20041DA97 /* ed25519Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6B22C8219BF4D20041DA97 /* ed25519Tests.swift */; };
 		8F6B22CB219BF4D20041DA97 /* ed25519.h in Headers */ = {isa = PBXBuildFile; fileRef = 8F6B22BD219BF4D20041DA97 /* ed25519.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		8F6B22D9219BF4F10041DA97 /* precomputedgroupelement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6B22D4219BF4F00041DA97 /* precomputedgroupelement.swift */; };
+		8F6B22DA219BF4F10041DA97 /* ed25519.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6B22D5219BF4F00041DA97 /* ed25519.swift */; };
+		8F6B22DB219BF4F10041DA97 /* fieldelement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6B22D6219BF4F00041DA97 /* fieldelement.swift */; };
+		8F6B22DC219BF4F10041DA97 /* edwards25519.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6B22D7219BF4F10041DA97 /* edwards25519.swift */; };
+		8F6B22DE219BF5030041DA97 /* const.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6B22D8219BF4F10041DA97 /* const.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,6 +34,11 @@
 		8F6B22C3219BF4D20041DA97 /* ed25519Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ed25519Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8F6B22C8219BF4D20041DA97 /* ed25519Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ed25519Tests.swift; sourceTree = "<group>"; };
 		8F6B22CA219BF4D20041DA97 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8F6B22D4219BF4F00041DA97 /* precomputedgroupelement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = precomputedgroupelement.swift; sourceTree = "<group>"; };
+		8F6B22D5219BF4F00041DA97 /* ed25519.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ed25519.swift; sourceTree = "<group>"; };
+		8F6B22D6219BF4F00041DA97 /* fieldelement.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = fieldelement.swift; sourceTree = "<group>"; };
+		8F6B22D7219BF4F10041DA97 /* edwards25519.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = edwards25519.swift; sourceTree = "<group>"; };
+		8F6B22D8219BF4F10041DA97 /* const.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = const.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +82,11 @@
 			isa = PBXGroup;
 			children = (
 				8F6B22BD219BF4D20041DA97 /* ed25519.h */,
+				8F6B22D8219BF4F10041DA97 /* const.swift */,
+				8F6B22D5219BF4F00041DA97 /* ed25519.swift */,
+				8F6B22D7219BF4F10041DA97 /* edwards25519.swift */,
+				8F6B22D6219BF4F00041DA97 /* fieldelement.swift */,
+				8F6B22D4219BF4F00041DA97 /* precomputedgroupelement.swift */,
 				8F6B22BE219BF4D20041DA97 /* Info.plist */,
 			);
 			path = ed25519;
@@ -148,6 +163,7 @@
 				TargetAttributes = {
 					8F6B22B9219BF4D20041DA97 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1010;
 					};
 					8F6B22C2219BF4D20041DA97 = {
 						CreatedOnToolsVersion = 10.1;
@@ -194,6 +210,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8F6B22DE219BF5030041DA97 /* const.swift in Sources */,
+				8F6B22D9219BF4F10041DA97 /* precomputedgroupelement.swift in Sources */,
+				8F6B22DC219BF4F10041DA97 /* edwards25519.swift in Sources */,
+				8F6B22DB219BF4F10041DA97 /* fieldelement.swift in Sources */,
+				8F6B22DA219BF4F10041DA97 /* ed25519.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -341,6 +362,7 @@
 		8F6B22CF219BF4D20041DA97 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -358,6 +380,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.ityly.ed25519;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -366,6 +389,7 @@
 		8F6B22D0219BF4D20041DA97 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
 				DEFINES_MODULE = YES;
@@ -391,6 +415,7 @@
 		8F6B22D2219BF4D20041DA97 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = MQ4BAK6QRP;
 				INFOPLIST_FILE = ed25519Tests/Info.plist;
@@ -409,6 +434,7 @@
 		8F6B22D3219BF4D20041DA97 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = MQ4BAK6QRP;
 				INFOPLIST_FILE = ed25519Tests/Info.plist;
