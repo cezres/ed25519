@@ -24,6 +24,7 @@
 // This code is a port of the public domain, "ref10" implementation of ed25519
 // from SUPERCOP.
 
+public typealias byte = UInt8
 
 let d: FieldElement = [-10913610, 13857413, -15372611, 6949391, 114729, -8787816, -6275908, -3247719, -18696448, -12055116]
 

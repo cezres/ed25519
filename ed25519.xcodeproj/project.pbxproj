@@ -11,7 +11,6 @@
 		8F6B22C9219BF4D20041DA97 /* ed25519Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6B22C8219BF4D20041DA97 /* ed25519Tests.swift */; };
 		8F6B22CB219BF4D20041DA97 /* ed25519.h in Headers */ = {isa = PBXBuildFile; fileRef = 8F6B22BD219BF4D20041DA97 /* ed25519.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		8F6B22D9219BF4F10041DA97 /* precomputedgroupelement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6B22D4219BF4F00041DA97 /* precomputedgroupelement.swift */; };
-		8F6B22DA219BF4F10041DA97 /* ed25519.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6B22D5219BF4F00041DA97 /* ed25519.swift */; };
 		8F6B22DB219BF4F10041DA97 /* fieldelement.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6B22D6219BF4F00041DA97 /* fieldelement.swift */; };
 		8F6B22DC219BF4F10041DA97 /* edwards25519.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6B22D7219BF4F10041DA97 /* edwards25519.swift */; };
 		8F6B22DE219BF5030041DA97 /* const.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6B22D8219BF4F10041DA97 /* const.swift */; };
@@ -214,7 +213,6 @@
 				8F6B22D9219BF4F10041DA97 /* precomputedgroupelement.swift in Sources */,
 				8F6B22DC219BF4F10041DA97 /* edwards25519.swift in Sources */,
 				8F6B22DB219BF4F10041DA97 /* fieldelement.swift in Sources */,
-				8F6B22DA219BF4F10041DA97 /* ed25519.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

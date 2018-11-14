@@ -32,7 +32,7 @@ let PublicKeySize  = 32
 let PrivateKeySize = 64
 let SignatureSize  = 64
 
-public typealias byte = UInt8
+//public typealias byte = UInt8
 
 
 //// GenerateKey generates a public/private key pair using a random array of 32 bytes

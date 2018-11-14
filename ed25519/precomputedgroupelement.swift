@@ -33,33 +33,33 @@
 //   CompletedGroupElement: ((X:Z),(Y:T)) satisfying x=X/Z, y=Y/T
 //   PreComputedGroupElement: (y+x,y-x,2dxy)
 
-struct ProjectiveGroupElement {
+public struct ProjectiveGroupElement {
     var X: FieldElement = FieldElement(repeating: 0, count: 10)
     var Y: FieldElement = FieldElement(repeating: 0, count: 10)
     var Z: FieldElement = FieldElement(repeating: 0, count: 10)
 }
 
-struct ExtendedGroupElement {
-    var X: FieldElement = FieldElement(repeating: 0, count: 10)
-    var Y: FieldElement = FieldElement(repeating: 0, count: 10)
-    var Z: FieldElement = FieldElement(repeating: 0, count: 10)
-    var T: FieldElement = FieldElement(repeating: 0, count: 10)
-}
-
-struct CompletedGroupElement {
+public struct ExtendedGroupElement {
     var X: FieldElement = FieldElement(repeating: 0, count: 10)
     var Y: FieldElement = FieldElement(repeating: 0, count: 10)
     var Z: FieldElement = FieldElement(repeating: 0, count: 10)
     var T: FieldElement = FieldElement(repeating: 0, count: 10)
 }
 
-struct PreComputedGroupElement {
+public struct CompletedGroupElement {
+    var X: FieldElement = FieldElement(repeating: 0, count: 10)
+    var Y: FieldElement = FieldElement(repeating: 0, count: 10)
+    var Z: FieldElement = FieldElement(repeating: 0, count: 10)
+    var T: FieldElement = FieldElement(repeating: 0, count: 10)
+}
+
+public struct PreComputedGroupElement {
     var yPlusX: FieldElement = FieldElement(repeating: 0, count: 10)
     var yMinusX: FieldElement = FieldElement(repeating: 0, count: 10)
     var xy2d: FieldElement = FieldElement(repeating: 0, count: 10)
 }
 
-struct CachedGroupElement {
+public struct CachedGroupElement {
     var yPlusX: FieldElement = FieldElement(repeating: 0, count: 10)
     var yMinusX: FieldElement = FieldElement(repeating: 0, count: 10)
     var Z: FieldElement = FieldElement(repeating: 0, count: 10)
@@ -75,7 +75,7 @@ extension ProjectiveGroupElement{
         FeOne(&self.Z)
     }
     
-    func Double( _ r: inout CompletedGroupElement) {
+    public func Double( _ r: inout CompletedGroupElement) {
         var t0 = FieldElement(repeating: 0,  count: 10)
         
         FeSquare(&r.X, self.X)
@@ -89,7 +89,7 @@ extension ProjectiveGroupElement{
         FeSub(&r.T, r.T, r.Z)
     }
     
-    func ToBytes(_ s: inout [byte]) {
+    public func ToBytes(_ s: inout [byte]) {
         var recip = FieldElement(repeating: 0,  count: 10)
         var x = FieldElement(repeating: 0,  count: 10)
         var y = FieldElement(repeating: 0,  count: 10)
@@ -103,33 +103,33 @@ extension ProjectiveGroupElement{
 }
 
 extension ExtendedGroupElement {
-    mutating func Zero() {
+    public mutating func Zero() {
         FeZero(&self.X)
         FeOne(&self.Y)
         FeOne(&self.Z)
         FeZero(&self.T)
     }
     
-    func Double(_ r: inout CompletedGroupElement) {
+    public func Double(_ r: inout CompletedGroupElement) {
         var q = ProjectiveGroupElement()
         self.ToProjective(&q)
         q.Double(&r)
     }
     
-    func ToCached(_ r: inout CachedGroupElement) {
+    public func ToCached(_ r: inout CachedGroupElement) {
         FeAdd(&r.yPlusX, self.Y, self.X)
         FeSub(&r.yMinusX, self.Y, self.X)
         FeCopy(&r.Z, self.Z)
         FeMul(&r.T2d, self.T, d2)
     }
     
-    func ToProjective(_ r: inout ProjectiveGroupElement) {
+    public func ToProjective(_ r: inout ProjectiveGroupElement) {
         FeCopy(&r.X, self.X)
         FeCopy(&r.Y, self.Y)
         FeCopy(&r.Z, self.Z)
     }
     
-    func ToBytes(_ s: inout [byte]) {
+    public func ToBytes(_ s: inout [byte]) {
         var recip = FieldElement(repeating: 0,  count: 10)
         var x = FieldElement(repeating: 0,  count: 10)
         var y = FieldElement(repeating: 0,  count: 10)
@@ -141,7 +141,7 @@ extension ExtendedGroupElement {
         s[31] ^= FeIsNegative(&x) << 7
     }
     
-    mutating func FromBytes(_ s: [byte]) -> Bool {
+    public mutating func FromBytes(_ s: [byte]) -> Bool {
         var u = FieldElement(repeating: 0,  count: 10)
         var v = FieldElement(repeating: 0,  count: 10)
         var v3 = FieldElement(repeating: 0,  count: 10)
@@ -184,13 +184,13 @@ extension ExtendedGroupElement {
 }
 
 extension CompletedGroupElement {
-    func ToProjective(_ r: inout ProjectiveGroupElement) {
+    public func ToProjective(_ r: inout ProjectiveGroupElement) {
         FeMul(&r.X, self.X, self.T)
         FeMul(&r.Y, self.Y, self.Z)
         FeMul(&r.Z, self.Z, self.T)
     }
     
-    func ToExtended(_ r: inout ExtendedGroupElement) {
+    public func ToExtended(_ r: inout ExtendedGroupElement) {
         FeMul(&r.X, self.X, self.T)
         FeMul(&r.Y, self.Y, self.Z)
         FeMul(&r.Z, self.Z, self.T)
@@ -201,7 +201,7 @@ extension CompletedGroupElement {
 
 extension PreComputedGroupElement {
     
-    mutating func Zero() {
+    public mutating func Zero() {
         FeOne(&self.yPlusX)
         FeOne(&self.yMinusX)
         FeZero(&self.xy2d)
