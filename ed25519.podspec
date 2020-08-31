@@ -16,4 +16,8 @@ Pod::Spec.new do |spec|
   spec.source_files = "ed25519/**/*.{h,swift}"
   spec.public_header_files = "ed25519/**/*.h"
 
+  spec.pod_target_xcconfig = {
+    'SWIFT_OPTIMIZATION_LEVEL' => '-Owholemodule'
+  }
+
 end
